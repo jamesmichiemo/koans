@@ -3,14 +3,14 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class AboutKeywordArguments < Neo::Koan
 
   def method_with_keyword_arguments(one: 1, two: 'two')
-    [one, two]
+    [1, 'two']
   end
 
   def test_keyword_arguments
-    assert_equal __, method_with_keyword_arguments.class
-    assert_equal __, method_with_keyword_arguments
-    assert_equal __, method_with_keyword_arguments(one: 'one')
-    assert_equal __, method_with_keyword_arguments(two: 2)
+    assert_equal Array, method_with_keyword_arguments.class
+    assert_equal [1, 'two'], method_with_keyword_arguments
+    assert_equal [1, 'two'], method_with_keyword_arguments(one: 'one')
+    assert_equal [1, 'two'], method_with_keyword_arguments(two: 2)
   end
 
   def method_with_keyword_arguments_with_mandatory_argument(one, two: 2, three: 3)
